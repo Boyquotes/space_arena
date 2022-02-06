@@ -1,0 +1,63 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Objects/ShipWithTrail.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Objects/StarFieldBackground.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/planets.svg" type="Texture" id=3]
+[ext_resource path="res://Objects/Asteroid.tscn" type="PackedScene" id=4]
+
+[node name="MainScene" type="Node"]
+
+[node name="ShipWithTrail" parent="." instance=ExtResource( 1 )]
+z_index = 1
+rotation_speed = 2.5
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="RepeatingBackground" type="ParallaxBackground" parent="CanvasLayer"]
+layer = -99
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="CanvasLayer/RepeatingBackground"]
+motion_scale = Vector2( 0.2, 0.2 )
+
+[node name="Sprite" type="Sprite" parent="CanvasLayer/RepeatingBackground/ParallaxLayer"]
+position = Vector2( 421, 1152 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 29, 17, 373, 365 )
+
+[node name="Sprite2" type="Sprite" parent="CanvasLayer/RepeatingBackground/ParallaxLayer"]
+position = Vector2( 1171, 1706 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 617, 35, 380, 323 )
+
+[node name="Sprite3" type="Sprite" parent="CanvasLayer/RepeatingBackground/ParallaxLayer"]
+position = Vector2( 1497, 724 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 133.262, 467.803, 754.698, 384.21 )
+
+[node name="Sprite4" type="Sprite" parent="CanvasLayer/RepeatingBackground/ParallaxLayer"]
+position = Vector2( 3276, 454 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 29, 17, 373, 365 )
+
+[node name="Sprite5" type="Sprite" parent="CanvasLayer/RepeatingBackground/ParallaxLayer"]
+position = Vector2( 2624, 1005 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 617, 35, 380, 323 )
+
+[node name="Sprite6" type="Sprite" parent="CanvasLayer/RepeatingBackground/ParallaxLayer"]
+position = Vector2( 2632, 1714 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 133.262, 467.803, 754.698, 384.21 )
+
+[node name="StarFieldBackground" parent="CanvasLayer" instance=ExtResource( 2 )]
+
+[node name="Asteroid" parent="." instance=ExtResource( 4 )]
+position = Vector2( 864, 804 )
+
+[node name="Timer" type="Timer" parent="."]
