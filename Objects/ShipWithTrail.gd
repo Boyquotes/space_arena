@@ -16,6 +16,7 @@ func _ready():
 
 
 func _physics_process(delta):
+	auto_shoot()
 	get_input()
 	velocity = Vector2(speed, 0).rotated(rotation)
 	rotation += rotation_dir * rotation_speed * delta
@@ -41,7 +42,12 @@ func get_input():
 	#if Input.is_action_just_pressed("ui_select"):
 		#shoot()
 
+func auto_shoot():
+	if(shoot == true && $Autoshoot_Timer.is_stopped()):
+		shoot()
+
 func shoot():
+	$Autoshoot_Timer.start()
 	var b = Bullet.instance()
 ##	add_child(b)
 ##	b.transform = $Muzzle.transform
@@ -51,9 +57,10 @@ func shoot():
 
 
 func _on_Area2D_area_entered(area):
-	print(area.get_parent().name)
-	shoot = true
+	if(area.get_parent().name == "Asteroid"):
+		shoot = true
 
 
 func _on_Area2D_area_exited(area):
-	shoot = false
+	if(area.get_parent().name == "Asteroid"):
+		shoot = false

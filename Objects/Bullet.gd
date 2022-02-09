@@ -19,3 +19,7 @@ func _process(delta):
 
 func _on_Timer_timeout():
 	queue_free()
+
+func _on_Bullet_area_entered(area):
+	if(area.get_parent().name == "Asteroid"):
+		queue_free()
