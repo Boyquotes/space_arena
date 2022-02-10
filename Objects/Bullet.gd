@@ -21,5 +21,5 @@ func _on_Timer_timeout():
 	queue_free()
 
 func _on_Bullet_area_entered(area):
-	if(area.get_parent().name == "Asteroid"):
+	if(area.get_parent().is_in_group("Asteroids")):
 		queue_free()

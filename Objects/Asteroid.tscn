@@ -40,7 +40,7 @@ tracks/0/keys = {
 [sub_resource type="CircleShape2D" id=4]
 radius = 106.0
 
-[node name="Asteroid" type="StaticBody2D"]
+[node name="Asteroid" type="StaticBody2D" groups=["Asteroids"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )

@@ -11,7 +11,7 @@ radius = 35.0
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 660, 32.37 )
 
-[node name="ShipWithTrail" type="KinematicBody2D"]
+[node name="ShipWithTrail" type="KinematicBody2D" groups=["Player"]]
 position = Vector2( 511.602, 297.63 )
 script = ExtResource( 3 )
 rotation_speed = 5.0
@@ -52,3 +52,5 @@ one_shot = true
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_Area2D_area_exited"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
